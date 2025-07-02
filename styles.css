@@ -1,191 +1,186 @@
-*{
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-optical-sizing: auto;
 }
+
 :root {
   --primary-font: 'Fraunces', serif;
-  --secondary-font:"Montserrat", sans-serif;
+  --secondary-font: 'Montserrat', sans-serif;
 }
-body{
+
+body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   background-color: hsl(30, 38%, 92%);
   height: 100vh;
   width: 100%;
+  font-family: var(--secondary-font);
+  flex-direction: column;
+  gap: 2rem;
 }
-.main{
+
+/* ========== MAIN CONTAINER ========== */
+.main {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70%;
-  width: 50%;
-  overflow: hidden;
-  margin: 1.5rem;
-  border-radius: 1rem;
+  flex-direction: row;
+  width: 90%;
+  max-width: 900px;
+  height: auto;
   background-color: hsl(0, 0%, 100%);
-  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
-.main .left{
-  object-fit: cover;
-  width: 100%;
+
+/* ========== LEFT SIDE (IMAGES) ========== */
+.main .left {
+  flex: 1;
   height: 100%;
 }
-.main .left .product-image-desktop{
+
+.product-image-desktop {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.main .left .product-image-mobile{
+
+.product-image-mobile {
   display: none;
 }
-.main .right{
+
+/* ========== RIGHT SIDE (CONTENT) ========== */
+.main .right {
+  flex: 1;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   justify-content: center;
-  padding: 3rem;
-  height: 100%;
-  width: calc(100% - 10rem);
+  gap: 2rem;
+}
 
-}
-.main .right .para1{
-  font-family: var(--secondary-font);
-  font-size: 1rem;
-  font-weight: 600;
-  color: hsl(228, 12%, 48%);
-  line-height: 1.5rem;
-  letter-spacing: 0.5rem;
-  margin-top: 10rem;
-  margin-bottom: 1rem;
-  opacity: 0.8;
-}
-.main .right h1{
-  font-family: var(--primary-font);
-  font-size: 3.5rem;
-  font-weight: 700;
-  color: hsl(212, 21%, 14%);
-  line-height: 3.5rem;
-  margin-bottom: 1rem;
-}
-.main .right .para2{
-  font-family: var(--secondary-font);
+.para1 {
   font-size: 1.2rem;
   font-weight: 600;
+  letter-spacing: 0.4rem;
   color: hsl(228, 12%, 48%);
-  line-height: 2rem;
-  margin-bottom: 1rem;
-  opacity: 0.8;
+  text-transform: uppercase;
 }
-.main .right .price{
+
+h1 {
+  font-family: var(--primary-font);
+  font-size: 3rem;
+  line-height: 1.2;
+  color: hsl(212, 21%, 14%);
+  padding-right: 5rem;
+}
+
+.para2 {
+  font-size: 1.2rem;
+  color: hsl(228, 12%, 48%);
+  line-height: 1.5;
+  font-weight: 500;
+  padding-right: 4rem;
+}
+
+.price {
   display: flex;
   align-items: center;
-  gap: 2rem;
-  margin-bottom: 1rem;
+  gap: 1.5rem;
 }
-.main .right .price .price1{
+
+.price1 {
   font-family: var(--primary-font);
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: hsl(158, 36%, 37%);
 }
-.main .right .price .old-price{
-  font-family: var(--secondary-font);
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: hsl(228, 12%, 48%);
+
+.old-price {
   text-decoration: line-through;
-  opacity: 0.8;
+  color: hsl(228, 12%, 48%);
+  font-weight: 500;
 }
-.btn{
+
+.btn {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 1.2rem 2rem;
+  padding: 1rem;
   background-color: hsl(158, 36%, 37%);
-  color: hsl(0, 0%, 100%);
-  border-radius: 0.5rem;
+  color: white;
   border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  margin-bottom: 10rem;
+  transition: background-color 0.3s ease;
 }
-.btn:hover{
+
+.btn:hover {
   background-color: hsl(158, 42%, 18%);
 }
-.btn img{
-  width: 1.3rem;
-  height: 1.3rem;
-  margin-right: 0.5rem;
+
+.btn img {
+  width: 1.2rem;
+  height: 1.2rem;
 }
-.btn p{
-  font-family: var(--secondary-font);
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: hsl(0, 0%, 100%);
-}
-@media (max-width:600px) {
-  .main{
+
+/* ========== RESPONSIVE STYLES ========== */
+@media (max-width: 768px) {
+  .main {
     flex-direction: column;
-    height: auto;
     width: 90%;
-    position: relative;
-    /* padding: 5rem 0 0 0; */
+    margin: 2rem auto;
   }
-  .main .left{
-    width: 100%;
-    height: 100%;
-  }
-  .main .left .product-image-mobile{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .main .left .product-image-desktop{
+
+  .product-image-desktop {
     display: none;
   }
-  .main .right{
+
+  .product-image-mobile {
+    display: block;
     width: 100%;
-    height: 100%;
-    padding: 2rem;
+    height: auto;
+    object-fit: cover;
   }
-  .main .right .para1{
-    margin: 0 0.5rem 0.5rem 1.5rem;
-    font-size: 0.8rem;
+
+  .main .right {
+    padding: 1.5rem;
   }
-  .main .right h1{
-    font-size: 2.2rem;
-    line-height: 2.2rem;
-    margin: 0 0.5rem 0.5rem 1.5rem;
+
+  h1 {
+    font-size: 2.1rem;
   }
-  .main .right .para2{
+
+  .para1 {
     font-size: 0.9rem;
-    line-height: 1.5rem;
-    margin: 0 1.3rem 0.5rem 1.5rem;
+    letter-spacing: 0.3rem;
   }
-  .price{
-    margin: 0 1.2rem 0.5rem 1.5rem;
+
+  .para2 {
+    font-size: 1rem;
   }
-  .main .right .price .price1{
-    font-size: 2rem;
+
+  .price1 {
+    font-size: 1.6rem;
   }
-  .main .right .price .old-price{
+
+  .old-price {
     font-size: 0.9rem;
-    margin-left: -0.6rem;
   }
-  .btn{
-    margin: 0 1.2rem 0 1.5rem;
-    padding: 0.8rem 1.5rem;
+
+  .btn {
+    padding: 0.8rem;
+    font-size: 0.95rem;
   }
-  .btn img{
+
+  .btn img {
     width: 1rem;
     height: 1rem;
-  }
-  .btn p{
-    font-size: 1rem;
   }
 }
